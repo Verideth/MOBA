@@ -4,9 +4,6 @@
 
 #include "Localplayer.h"
 
-Localplayer::Player player;
-
-Map::MapGUI gui;
 bool isInEditor;
 
 namespace Map
@@ -65,7 +62,7 @@ namespace Map
 				{
 					sf::RenderWindow mapEditor(sf::VideoMode(1200, 750), "Battle of Hecarix Map Editor");
 
-					while (mapEditor.isOpen()) // window loop
+					while (mapEditor.isOpen()) // game loop
 					{
 						sf::Event evnt; // event
 						while (mapEditor.pollEvent(evnt)) // check for events
@@ -75,11 +72,15 @@ namespace Map
 						}
 
 						mapEditor.clear();
-						mapEditor.draw(ply.DrawPlayer(50, 50, 25, 200, sf::Color(255, 0, 255, 255)));
+						mapEditor.draw(player.DrawPlayer(50, 50, 25, 200, sf::Color(255, 0, 255, 255)));
 						mapEditor.display();
 					}
 				}
 			}
 		}
+		
+	private:
+		MapGUI gui;
+		Localplayer::Player player;
 	};
 }
