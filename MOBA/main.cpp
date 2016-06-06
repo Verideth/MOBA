@@ -22,9 +22,7 @@ int main(int* argc, char** argv)
 			editor.OpenMapEditor();
 
 			if (evnt.type == sf::Event::Closed) // if pressed exit then window close
-			{
 				window.close();
-			}
 		}
 
 		window.clear();
