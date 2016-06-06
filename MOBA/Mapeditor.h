@@ -4,9 +4,6 @@
 
 #include "Localplayer.h"
 
-Localplayer::Player player;
-
-Map::MapGUI gui;
 bool isInEditor;
 
 namespace Map
@@ -15,7 +12,7 @@ namespace Map
 	{
 
 	};
-	
+
 	class MapEnts
 	{
 
@@ -63,11 +60,18 @@ namespace Map
 
 				if (isInEditor)
 				{
-					sf::RenderWindow mapEditor(sf::VideoMode(1200, 750), "Battle of Hecarix Map Editor");
+					sf::RenderWindow mapEditor(sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height), "Battle of Hecarix Map Editor");
 
 					while (mapEditor.isOpen()) // game loop
 					{
 						sf::Event evnt; // event
+
+						if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+						{
+							rectShape = gui.DrawBar(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y, 250, 500, sf::Color(25, 255, 25, 255));
+							rectShape.setPosition(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y);
+						}
+
 						while (mapEditor.pollEvent(evnt)) // check for events
 						{
 							if (evnt.type == sf::Event::Closed) // if pressed exit then window close
@@ -75,11 +79,17 @@ namespace Map
 						}
 
 						mapEditor.clear();
-						mapEditor.draw(ply.DrawPlayer(50, 50, 25, 200, sf::Color(255, 0, 255, 255)));
+						mapEditor.draw(rectShape);	
 						mapEditor.display();
 					}
 				}
 			}
 		}
+
+	private:
+		MapGUI gui;
+		Localplayer::Player player;
+		sf::Mouse mouse;
+		sf::RectangleShape rectShape;
 	};
 }
