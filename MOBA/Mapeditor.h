@@ -66,8 +66,21 @@ public:
 
 					if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 					{
+<<<<<<< HEAD
 						rectShape = gui.DrawBar(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y, 250, 500, sf::Color(25, 255, 25, 255));
 						rectShape.setPosition(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y);
+=======
+						sf::Event evnt; // event
+						while (mapEditor.pollEvent(evnt)) // check for events
+						{
+							if (evnt.type == sf::Event::Closed) // if pressed exit then window close
+								mapEditor.close();
+						}
+
+						mapEditor.clear();
+						mapEditor.draw(player.DrawPlayer(50, 50, 25, 200, sf::Color(255, 0, 255, 255)));
+						mapEditor.display();
+>>>>>>> origin/master
 					}
 
 					while (mapEditor.pollEvent(evnt)) // check for events
@@ -82,6 +95,7 @@ public:
 				}
 			}
 		}
+<<<<<<< HEAD
 	}
 
 private:
@@ -90,3 +104,11 @@ private:
 	sf::Mouse mouse;
 	sf::RectangleShape rectShape;
 };
+=======
+		
+	private:
+		MapGUI gui;
+		Localplayer::Player player;
+	};
+}
+>>>>>>> origin/master
