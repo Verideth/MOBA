@@ -5,9 +5,9 @@
 #include "Localplayer.h"
 #include "Mapeditor.h"
 
-Localplayer::Player ply;
+Player ply;
 
-Map::MapEditor editor;
+MapEditor editor;
 
 int main(int* argc, char** argv)
 {
