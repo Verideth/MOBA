@@ -65,7 +65,7 @@ namespace Map
 				{
 					sf::RenderWindow mapEditor(sf::VideoMode(1200, 750), "Battle of Hecarix Map Editor");
 
-					while (mapEditor.isOpen()) // game loop
+					while (mapEditor.isOpen()) // window loop
 					{
 						sf::Event evnt; // event
 						while (mapEditor.pollEvent(evnt)) // check for events
