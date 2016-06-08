@@ -36,8 +36,11 @@ class MapEditor
 {
 public:
 	void OpenMapEditor();
+<<<<<<< HEAD
 	sf::Vector2f Snap(sf::RenderWindow& mapEditor);
 	sf::Color Color();
+=======
+>>>>>>> origin/master
 
 private:
 	MapGUI gui;
