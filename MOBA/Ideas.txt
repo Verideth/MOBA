@@ -1,1 +1,2 @@
 Battle of Hecarix = Name
+Map editor = tilebased

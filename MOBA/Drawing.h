@@ -3,7 +3,7 @@
 #include <SFML\Graphics.hpp>
 
 sf::RectangleShape DrawBox(float x, float y, float width, float height, sf::Color col) // draw box
-	{
+{
 	sf::RectangleShape shape;
 
 	shape.setFillColor(sf::Color(255, 0, 255, 255));

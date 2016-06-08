@@ -4,6 +4,7 @@
 #include "Drawing.h"
 #include "Localplayer.h"
 #include "Mapeditor.h"
+#include "Notification.h"
 
 Player ply;
 

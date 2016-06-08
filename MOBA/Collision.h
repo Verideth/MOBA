@@ -10,9 +10,13 @@ bool IsColliding(sf::RectangleShape a, sf::RectangleShape b)
 	sf::Vector2f bsz = b.getSize();
 
 	if (!(apos.x + asz.x >= bpos.x && apos.x <= bpos.x + bsz.x))
+	{
 		return false;
+	}
 	else if (apos.y + asz.y >= bpos.y && apos.y <= bpos.y + bsz.y)
+	{
 		return false;
+	}
 
 	return true;
 }
