@@ -18,13 +18,13 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MapEditor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Localplayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Notification.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mapeditor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

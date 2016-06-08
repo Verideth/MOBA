@@ -146,7 +146,7 @@
   <ItemGroup>
     <ClCompile Include="Localplayer.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MapEditor.cpp" />
+    <ClCompile Include="Mapeditor.cpp" />
     <ClCompile Include="Notification.cpp" />
   </ItemGroup>
   <ItemGroup>

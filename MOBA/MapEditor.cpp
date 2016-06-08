@@ -87,7 +87,7 @@ sf::Vector2f MapEditor::Snap(sf::RenderWindow &mapEditor)
 	return vectorMouseXY;
 }
 
-sf::CircleShape MapEditor::Color()
+sf::Color MapEditor::Color()
 {
 
 }
