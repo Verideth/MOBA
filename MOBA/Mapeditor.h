@@ -1,10 +1,13 @@
 #pragma once
 
 #include <SFML\Graphics.hpp>
+#include <vector>
 
 #include "Localplayer.h"
+#include "Button.h"
 
 bool isInEditor;
+bool isCircleButtonPressed;
 
 class MapTiles
 {
@@ -64,38 +67,56 @@ public:
 				{
 					sf::Event evnt; // event
 
-					if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-					{
-<<<<<<< HEAD
-						rectShape = gui.DrawBar(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y, 250, 500, sf::Color(25, 255, 25, 255));
-						rectShape.setPosition(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y);
-=======
-						sf::Event evnt; // event
-						while (mapEditor.pollEvent(evnt)) // check for events
-						{
-							if (evnt.type == sf::Event::Closed) // if pressed exit then window close
-								mapEditor.close();
-						}
+					std::vector<sf::RectangleShape> rect(100, sf::RectangleShape(rectShape));
+					std::vector<sf::CircleShape> circle(100, sf::CircleShape(circleShape));
 
-						mapEditor.clear();
-						mapEditor.draw(player.DrawPlayer(50, 50, 25, 200, sf::Color(255, 0, 255, 255)));
-						mapEditor.display();
->>>>>>> origin/master
-					}
+					Button circleButton;
 
 					while (mapEditor.pollEvent(evnt)) // check for events
 					{
+						if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+						{
+							for (std::vector<sf::RectangleShape>::iterator i = rect.begin(); i != rect.end(); i++)
+							{
+								i->setFillColor(sf::Color(25, 255, 25, 255));
+								i->setPosition(mouse.getPosition().x, mouse.getPosition().y);
+								i->setSize(sf::Vector2<float>(200, 500));
+
+								mapEditor.draw(*i);
+							}
+						}
+
+						if (circleButton.IsOnPress() == false)
+						{
+							isCircleButtonPressed = true;
+
+							if (isCircleButtonPressed)
+							{
+								if (sf::Mouse::Button(sf::Mouse::Left))
+								{
+									for (std::vector<sf::CircleShape>::iterator i = circle.begin(); i != circle.end(); i++)
+									{
+										i->setFillColor(sf::Color(25, 255, 25, 255));
+										i->setPosition(mouse.getPosition().x, mouse.getPosition().y);
+										i->setRadius(100);
+
+										mapEditor.draw(*i);
+									}
+								}
+							}
+						}
+
 						if (evnt.type == sf::Event::Closed) // if pressed exit then window close
+						{
 							mapEditor.close();
+						}
 					}
 
-					mapEditor.clear();
-					mapEditor.draw(rectShape);	
+					mapEditor.draw(circleButton.Draw(25, 25, 50, 50, sf::Color(255, 255, 255, 255)));
 					mapEditor.display();
 				}
 			}
 		}
-<<<<<<< HEAD
 	}
 
 private:
@@ -103,12 +124,5 @@ private:
 	Player player;
 	sf::Mouse mouse;
 	sf::RectangleShape rectShape;
+	sf::CircleShape circleShape;
 };
-=======
-		
-	private:
-		MapGUI gui;
-		Localplayer::Player player;
-	};
-}
->>>>>>> origin/master
