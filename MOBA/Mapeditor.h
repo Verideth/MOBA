@@ -74,15 +74,8 @@ public:
 
 					while (mapEditor.pollEvent(evnt)) // check for events
 					{
-<<<<<<< HEAD
-						if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-=======
-						rectShape = gui.DrawBar(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y, 250, 500, sf::Color(25, 255, 25, 255));
-						rectShape.setPosition(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y);
 
-						sf::Event evnt; // event
-						while (mapEditor.pollEvent(evnt)) // check for events
->>>>>>> origin/master
+						if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 						{
 							for (std::vector<sf::RectangleShape>::iterator i = rect.begin(); i != rect.end(); i++)
 							{
@@ -94,7 +87,7 @@ public:
 							}
 						}
 
-<<<<<<< HEAD
+
 						if (circleButton.IsOnPress() == false)
 						{
 							isCircleButtonPressed = true;
@@ -114,21 +107,15 @@ public:
 								}
 							}
 						}
-=======
-						mapEditor.clear();
-						mapEditor.draw(player.DrawPlayer(50, 50, 25, 200, sf::Color(255, 0, 255, 255)));
-						mapEditor.display();
-					}
->>>>>>> origin/master
 
 						if (evnt.type == sf::Event::Closed) // if pressed exit then window close
 						{
 							mapEditor.close();
 						}
-					}
 
-					mapEditor.draw(circleButton.Draw(25, 25, 50, 50, sf::Color(255, 255, 255, 255)));
-					mapEditor.display();
+						mapEditor.draw(circleButton.Draw(25, 25, 50, 50, sf::Color(255, 255, 255, 255)));
+						mapEditor.display();
+					}
 				}
 			}
 		}
