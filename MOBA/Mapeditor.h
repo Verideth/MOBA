@@ -88,7 +88,7 @@ public:
 						}
 
 
-						if (circleButton.IsOnPress() == false)
+						/*if (circleButton.IsOnPress() == false)
 						{
 							isCircleButtonPressed = true;
 
@@ -106,7 +106,7 @@ public:
 									}
 								}
 							}
-						}
+						}*/
 
 						if (evnt.type == sf::Event::Closed) // if pressed exit then window close
 						{
