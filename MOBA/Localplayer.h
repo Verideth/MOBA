@@ -2,16 +2,17 @@
 
 #include <SFML\Graphics.hpp>
 
-
 class Player
 {
 public:
-	sf::RectangleShape DrawPlayer(float x, float y, float width, float height, sf::Color col);
+	sf::Sprite DrawLocalPlayer();
 	sf::Vector2f GetPos();
 	sf::Vector2f GetOrigin();
+	float GetHealth();
 
 private:
-	sf::RectangleShape player;
+	sf::Sprite ply;
 	float x;
 	float y;
+	float plyHealth;
 };

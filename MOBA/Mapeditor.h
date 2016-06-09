@@ -32,25 +32,22 @@ private:
 	sf::CircleShape circle;
 };
 
-class MapEditor
-{
-public:
-	void OpenMapEditor();
-<<<<<<< HEAD
-	sf::Vector2f Snap(sf::RenderWindow& mapEditor);
-	sf::Color Color();
-=======
->>>>>>> origin/master
-
-private:
-	MapGUI gui;
-	Player player;
-	sf::Mouse mouse;
-	sf::RectangleShape rectShape;
-	sf::RectangleShape graphBar;
-	sf::CircleShape circleShape;
-	tgui::Button::Ptr button = std::make_shared<tgui::Button>();
-};
+//class MapEditor
+//{
+//public:
+//	void OpenMapEditor();
+//	sf::Vector2f Snap(sf::RenderWindow& mapEditor);
+//	sf::Color Color();
+//
+//private:
+//	MapGUI gui;
+//	Player player;
+//	sf::Mouse mouse;
+//	sf::RectangleShape rectShape;
+//	sf::RectangleShape graphBar;
+//	sf::CircleShape circleShape;
+//	tgui::Button::Ptr button = std::make_shared<tgui::Button>();
+//};
 
 class MapLS
 {
@@ -67,5 +64,5 @@ private:
 	tgui::Button::Ptr noSaveMap = std::make_shared<tgui::Button>();
 	tgui::Button::Ptr yesLoadMap = std::make_shared<tgui::Button>();
 	tgui::Button::Ptr noLoadMap = std::make_shared<tgui::Button>();
-	MapEditor editor;
+	//MapEditor editor;
 };

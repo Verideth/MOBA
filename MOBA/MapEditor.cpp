@@ -2,95 +2,91 @@
 #include <TGUI\TGUI.hpp>
 
 #include "Mapeditor.h"
-#include "Notification.h"
 
 bool isInEditor;
 bool isCircleButtonPressed;
 bool isInColor;
 
-Notification notify;
-
 // Mapeditor
-void MapEditor::OpenMapEditor()
-{
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F1))
-	{
-		isInEditor = true;
-
-		if (isInEditor)
-		{
-			sf::RenderWindow mapEditor(sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height), "Battle of Hecarix Map Editor");
-
-			tgui::Gui gui{ mapEditor };
-			gui.add(button, "Draw Circles");
-			gui.setFont(tgui::Font("fonts/RPGSystem.ttf"));
-
-			mapEditor.mapPixelToCoords(mouse.getPosition(mapEditor));
-
-			while (mapEditor.isOpen()) // game loop
-			{
-				sf::Event evnt; // event
-
-				std::vector<sf::RectangleShape> rect(100, sf::RectangleShape(rectShape));
-				//std::vector<sf::CircleShape> circle(100, sf::CircleShape(circleShape));
-
-				while (mapEditor.pollEvent(evnt)) // check for events
-				{
-					for (std::vector<sf::RectangleShape>::iterator i = rect.begin(); i != rect.end(); i++)
-					{
-
-						if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-						{
-							i->setFillColor(sf::Color(25, 255, 25, 255));
-							i->setPosition(Snap(mapEditor));
-							i->setSize(sf::Vector2<float>(32, 32));
-
-							mapEditor.draw(*i);
-						}
-
-						//if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
-						//{
-						//	rect.pop_back();
-						//}
-					}
-
-					if (evnt.type == sf::Event::Closed)
-					{
-						mapEditor.close();
-					}
-
-					gui.handleEvent(evnt);
-				}
-
-				gui.draw();
-				mapEditor.draw(notify.DrawNotifyBox(50, 50, 150, 200, sf::String("Hello!"), sf::Color(255, 255, 255, 255), sf::Color(255, 255, 255, 150)));
-				mapEditor.display();
-			}
-		}
-	}
-}
-
-sf::Vector2f MapEditor::Snap(sf::RenderWindow &mapEditor)
-{
-	sf::Vector2f mousePos = mapEditor.mapPixelToCoords(mouse.getPosition(mapEditor));
-
-	float mouseX = mouse.getPosition(mapEditor).x;
-	float mouseY = mouse.getPosition(mapEditor).y;
-
-	mouseX = std::floor(mousePos.x / 32) * 32;
-	mouseY = std::floor(mousePos.y / 32) * 32;
-
-	sf::Vector2f vectorMouseXY;
-	vectorMouseXY.x = mouseX;
-	vectorMouseXY.y = mouseY;
-
-	return vectorMouseXY;
-}
-
-sf::Color MapEditor::Color()
-{
-
-}
+//void MapEditor::OpenMapEditor()
+//{
+//	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F1))
+//	{
+//		isInEditor = true;
+//
+//		if (isInEditor)
+//		{
+//			sf::RenderWindow mapEditor(sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height), "Battle of Hecarix Map Editor");
+//
+//			tgui::Gui gui{ mapEditor };
+//			gui.add(button, "Draw Circles");
+//			gui.setFont(tgui::Font("fonts/RPGSystem.ttf"));
+//
+//			mapEditor.mapPixelToCoords(mouse.getPosition(mapEditor));
+//
+//			while (mapEditor.isOpen()) // game loop
+//			{
+//				sf::Event evnt; // event
+//
+//				std::vector<sf::RectangleShape> rect(100, sf::RectangleShape(rectShape));
+//				//std::vector<sf::CircleShape> circle(100, sf::CircleShape(circleShape));
+//
+//				while (mapEditor.pollEvent(evnt)) // check for events
+//				{
+//					for (std::vector<sf::RectangleShape>::iterator i = rect.begin(); i != rect.end(); i++)
+//					{
+//
+//						if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+//						{
+//							i->setFillColor(sf::Color(25, 255, 25, 255));
+//							i->setPosition(Snap(mapEditor));
+//							i->setSize(sf::Vector2<float>(32, 32));
+//
+//							mapEditor.draw(*i);
+//						}
+//
+//						//if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
+//						//{
+//						//	rect.pop_back();
+//						//}
+//					}
+//
+//					if (evnt.type == sf::Event::Closed)
+//					{
+//						mapEditor.close();
+//					}
+//
+//					gui.handleEvent(evnt);
+//				}
+//
+//				gui.draw();
+//				mapEditor.display();
+//			}
+//		}
+//	}
+//}
+//
+//sf::Vector2f MapEditor::Snap(sf::RenderWindow &mapEditor)
+//{
+//	sf::Vector2f mousePos = mapEditor.mapPixelToCoords(mouse.getPosition(mapEditor));
+//
+//	float mouseX = mouse.getPosition(mapEditor).x;
+//	float mouseY = mouse.getPosition(mapEditor).y;
+//
+//	mouseX = std::floor(mousePos.x / 32) * 32;
+//	mouseY = std::floor(mousePos.y / 32) * 32;
+//
+//	sf::Vector2f vectorMouseXY;
+//	vectorMouseXY.x = mouseX;
+//	vectorMouseXY.y = mouseY;
+//
+//	return vectorMouseXY;
+//}
+//
+//sf::Color MapEditor::Color()
+//{
+//
+//}
 
 // MapLS
 const char* MapLS::LoadMap(const char* mapDirectory)
@@ -103,7 +99,7 @@ const char* MapLS::LoadMap(const char* mapDirectory)
 
 		while (saveMapWindow.pollEvent(evnt)) // check for events
 		{
-			editor.OpenMapEditor();
+			//editor.OpenMapEditor();
 
 			if (evnt.type == sf::Event::Closed) // if pressed exit then window close
 			{
@@ -126,7 +122,7 @@ const char* MapLS::SaveMap(const char* locToSave)
 
 		while (saveMapWindow.pollEvent(evnt)) // check for events
 		{
-			editor.OpenMapEditor();
+			//editor.OpenMapEditor();
 
 			if (evnt.type == sf::Event::Closed) // if pressed exit then window close
 			{
