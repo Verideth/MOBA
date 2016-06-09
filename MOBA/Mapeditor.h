@@ -32,6 +32,7 @@ private:
 	sf::CircleShape circle;
 };
 
+<<<<<<< HEAD
 //class MapEditor
 //{
 //public:
@@ -48,6 +49,24 @@ private:
 //	sf::CircleShape circleShape;
 //	tgui::Button::Ptr button = std::make_shared<tgui::Button>();
 //};
+=======
+class MapEditor
+{
+public:
+	void OpenMapEditor();
+	sf::Vector2f Snap(sf::RenderWindow& mapEditor);
+	sf::Color Color();
+
+private:
+	MapGUI gui;
+	Player player;
+	sf::Mouse mouse;
+	sf::RectangleShape rectShape;
+	sf::RectangleShape graphBar;
+	sf::CircleShape circleShape;
+	tgui::Button::Ptr button = std::make_shared<tgui::Button>();
+};
+>>>>>>> origin/master
 
 class MapLS
 {
