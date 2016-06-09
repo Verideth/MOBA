@@ -2,4 +2,4 @@
 First launch
 
 Battle of Hecarix
-A MOBA game coded in C++ SFML.
+an RPG platformer made in C++ / SFML
