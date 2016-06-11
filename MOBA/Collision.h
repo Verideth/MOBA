@@ -6,44 +6,8 @@
 class Collision
 {
 public:
-	bool IsColliding(sf::Sprite a, sf::Sprite b)
-	{
-		sf::Vector2f apos = a.getPosition();
-		sf::Vector2f bpos = b.getPosition();
-		sf::Vector2f asz = a.getScale();
-		sf::Vector2f bsz = b.getScale();
-
-		if (!(apos.x + asz.x >= bpos.x && apos.x <= bpos.x + bsz.x))
-		{
-			return false;
-		}
-		else if (apos.y + asz.y >= bpos.y && apos.y <= bpos.y + bsz.y)
-		{
-			return false;
-		}
-
-		return true;
-	}
-
-	bool IsCollidingWeapon(sf::Sprite a, Weapons b)
-	{
-		sf::Vector2f apos = a.getPosition();
-		sf::Vector2f bpos = b.getPosition();
-		sf::Vector2f asz = a.getScale();
-		sf::Vector2f bsz = b.getScale();
-
-		if (!(apos.x + asz.x >= bpos.x && apos.x <= bpos.x + bsz.x))
-		{
-			return false;
-		}
-		else if (apos.y + asz.y >= bpos.y && apos.y <= bpos.y + bsz.y)
-		{
-			return false;
-		}
-
-		return true;
-	}
-
+	bool IsColliding(sf::Sprite a, sf::Sprite b);
+	bool IsCollidingWeapon(sf::Sprite a, Weapons::RPG b);
 
 private:
 };

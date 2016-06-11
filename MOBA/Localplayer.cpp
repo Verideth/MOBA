@@ -1,11 +1,12 @@
 #include "Localplayer.h"
 #include <SFML/Graphics.hpp>
 #include "Health.h"
-#include <TGUI/TGUI.hpp>
 #include "Collision.h"
 
 Player localPlayer;
 Collision col;
+sf::Sprite ply;
+Weapons::RPG weps;
 
 sf::Sprite Player::DrawLocalPlayer()
 {
@@ -29,5 +30,8 @@ float Player::GetHealth()
 
 float Health::HealthF()
 {
-	if (col.IsColliding(ply, ))
+	if (col.IsCollidingWeapon(ply, weps))
+	{
+		printf("Hello, world!");
+	}
 }

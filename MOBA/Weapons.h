@@ -1,9 +1,13 @@
 #pragma once
 
-class Weapons 
+namespace Weapons
 {
 	class RPG
 	{
+	public:
+		sf::Vector2f GetSize();
+		sf::Vector2f GetPos();
+
 		class Katana
 		{
 		public:
@@ -14,7 +18,7 @@ class Weapons
 			sf::Texture texture;
 			sf::Sprite weaponModel;
 		};
-		
+
 		class Magnum
 		{
 		public:
@@ -24,5 +28,11 @@ class Weapons
 		private:
 
 		};
+
+	private:
+		float x;
+		float y;
+		float width;
+		float height;
 	};
 };

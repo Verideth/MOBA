@@ -1,9 +1,9 @@
 #include <SFML\Graphics.hpp>
 #include <iostream>
 
+#include "MapLoader.h"
 #include "Drawing.h"
 #include "Localplayer.h"
-#include "Mapeditor.h"
 #include "Sprite.h"
 
 Player ply;
@@ -18,6 +18,10 @@ int main(int* argc, char** argv)
 	sf::Font font;
 
 	font.loadFromFile("fonts/pixel.ttf");
+
+	tmx::MapLoader ml("maps");
+
+	ml.Load("dev.tmx");
 
 	text.setFont(font);
 	text.setString("Health: ");
@@ -39,6 +43,7 @@ int main(int* argc, char** argv)
 		}
 
 		window.clear();
+		window.draw(ml);
 		window.draw(text);
 		window.display();
 	}
